@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-Stage 3 complete, random.shuffles a list to choose for the computer, rock paper or scissors needs to be input in lower case, now in a loop to continue playing "!exit" to quit the loop.
+Stage 4 complete, random.shuffles a list to choose for the computer,"!exit" to quit , "!rating" to see your score. Asks your name at start up, this is for saves.
