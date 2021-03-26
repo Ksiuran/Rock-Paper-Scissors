@@ -31,39 +31,44 @@ ratings.close()
 #
 name = input("Enter your name:")
 print(f"Hello, {name}")
+#
 score = load(name)
-correct = ["scissors", "paper", "rock", "!exit", "!rating"]
+#
+choices = input().split(",")
+if len(choices) == 1:
+    choices = ["rock", "paper", "scissors"]
+print("Okay, let's start")
+#
+compch = choices[:]
+# to create a separate list
 while True:
-    choices = ["scissors", "paper", "rock"]
+    #
     ans = input()
-    random.shuffle(choices)
-    lose = None
-    if ans not in correct:
-        print("Invalid input")
-    elif ans == "!exit":
+    #
+    if ans == "!exit":
         print("Bye!")
         break
+    #
     elif ans == "!rating":
         print(f"Your rating: {score}")
-    elif ans == choices[0]:
-        lose = -1
-    elif ans == "scissors" and choices[0] == "rock":
-        lose = 1
-    elif ans == "paper" and choices[0] == "scissors":
-        lose = 1
-    elif ans == "rock" and choices[0] == "paper":
-        lose = 1
+    #
+    elif ans not in choices:
+        print("Invalid input")
+    #
     else:
-        lose = 0
-    if lose is not None:
-        if lose == 1:
-            print(f"Sorry, but the computer chose {choices[0]}")
-        elif lose == 0:
-            print(f"Well done. The computer chose {choices[0]} and failed")
-            score += 100
-        elif lose == -1:
-            print(f"There is a draw ({choices[0]})")
+        random.shuffle(compch)
+        loc = choices.index(ans)
+        winlist = choices[loc+1:]+choices[:loc]
+        le = (len(winlist) / 2) - 1
+        try:
+            loc = winlist.index(compch[0])
+            if loc > le:
+                print(f"Well done. The computer chose {compch[0]} and failed")
+                score += 100
+            else:
+                print(f"Sorry, but the computer chose {compch[0]}")
+        except ValueError:
+            print(f"There is a draw ({compch[0]})")
             score += 50
-        else:
-            print("How?")
+    #
     save(name, score)
