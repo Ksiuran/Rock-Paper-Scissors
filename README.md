@@ -3,12 +3,20 @@ Project complete, Has score/rating saving, enter your name at start, next input 
 
 What wins against what is determined by it's place in the list, using [rock, paper, scissors] as an example, say you chose rock, it creates a new list, [paper, scissors], everything with an index over the 1/2 mark loses to you, whereas everything below wins against you, another example would be you picking paper, the list it would create then would be [scissors, rock], the 1/2 rule holds true here, too. this reordering is achieved by taking everything after the one you chose and moving it to the front of the list. another example that better illustrates this would be using the 15 option game above, say you chose air, it would create a list like this [paper, sponge, wolf, tree, human, snake, scissors, fire, rock, gun, lightning, devil, dragon, water], everything over the 7th choice, scissors, loses to air, while everything including the 7th and below beats you.
 
-An example output from running the game, > indicates uer input:
+An example output from running the game, \> indicates user input:
+
 Enter your name: >Wilson
+
 Hello, Wilson
->
+
+\>
+
 Okay, let's start
->rock
+
+\>rock
+
 Sorry, but the computer chose paper
->!exit
+
+\>!exit
+
 Bye!
